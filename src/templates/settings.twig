@@ -1,0 +1,33 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Weglot Translation plugin for Craft CMS 3.x
+ *
+ * Weglot Translation Settings.twig
+ *
+ * @author    Pinfire Studios
+ * @copyright Copyright (c) 2019 Pinfire Studios
+ * @link      www.pinfirestudios.com
+ * @package   WeglotTranslation
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("pinfirestudios\\weglottranslation\\assetbundles\\weglottranslation\\WeglotTranslationAsset") %}
+
+{{ forms.autosuggestField({
+    label: 'Weglot API Key',
+    id: 'weglotApiKey',
+    name: 'weglotApiKey',
+    value: settings['weglotApiKey'],
+    suggestEnvVars: true
+}) }}
+
+{{ forms.textAreaField({
+    label: 'CSS selectors to ignore (one per line)',
+    id: 'excludeBlocks',
+    name: 'excludeBlocks',
+    value: settings['excludeBlocks']
+}) }}

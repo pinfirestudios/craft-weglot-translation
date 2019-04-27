@@ -1,0 +1,46 @@
+{
+    "name": "pinfirestudios/weglot-translation",
+    "description": "Integrate with Weglot's API to provide automatic page translation.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "weglot translation"
+    ],
+    "support": {
+        "docs": "https://github.com/pinfirestudios/weglot-translation/blob/master/README.md",
+        "issues": "https://github.com/pinfirestudios/weglot-translation/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pinfire Studios",
+            "homepage": "http://www.pinfirestudios.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0",
+        "weglot/weglot-php": "^0.5",
+        "flipboxfactory/craft-psr16": "^1.0",
+        "symfony/cache": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+          "pinfirestudios\\weglottranslation\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Weglot Translation",
+        "handle": "weglot-translation",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/pinfirestudios/weglot-translation/master/CHANGELOG.md",
+        "components": {
+            "weglot": "pinfirestudios\\weglottranslation\\services\\Weglot"
+        },
+        "class": "pinfirestudios\\weglottranslation\\WeglotTranslation"
+    }
+}
