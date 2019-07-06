@@ -2,7 +2,6 @@
     "name": "pinfirestudios/craft-weglot-translation",
     "description": "Integrate with Weglot's API to provide automatic page translation.",
     "type": "craft-plugin",
-    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
