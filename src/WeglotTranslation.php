@@ -138,19 +138,17 @@ class WeglotTranslation extends Plugin
         }
 
         $cacheKey = $destLang . $dom;
-        if (isset($event->variables['block']))
+        if (isset($event->variables['entry']))
         {
-            $entry = $event->variables['block'];
+            $entry = $event->variables['entry'];
             $cacheKey = $destLang . ':' . $entry->uid . ':' . $entry->dateUpdated->format('U') . $entry->contentId;
         }
 
-        $cacheKey = md5($cacheKey);
-
-        Craft::debug("Content hash: {$cacheKey}", self::LOG_CATEGORY);
+        Craft::error("Content hash: {$cacheKey}", self::LOG_CATEGORY);
         $translated = Craft::$app->cache->get($cacheKey);
         if (empty($translated))
         {
-            Craft::info('Weglot cache miss', self::LOG_CATEGORY);
+            Craft::warning('Weglot cache miss', self::LOG_CATEGORY);
 
             $parser = $this->getWeglotParser();
 
@@ -161,6 +159,10 @@ class WeglotTranslation extends Plugin
             Craft::endProfile('Weglot translation', self::LOG_CATEGORY);
 
             Craft::$app->cache->set($cacheKey, $translated);
+        }
+        else
+        {
+            Craft::info('Weglot cache hit', self::LOG_CATEGORY);
         }
 
         $event->output = $translated;

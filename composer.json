@@ -23,16 +23,10 @@
     ],
     "require": {
         "craftcms/cms": "^3.0",
-        "weglot/weglot-php": "dev-fix-crash-on-full-cache-hit",
         "flipboxfactory/craft-psr16": "^1.0",
-        "symfony/cache": "^4.2"
+        "symfony/cache": "^4.2",
+        "weglot/weglot-php": "^0.5.24"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/pinfirestudios/weglot-php.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "pinfirestudios\\weglottranslation\\": "src/"
